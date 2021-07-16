@@ -14,7 +14,7 @@
 
         <div class="info-container">
             <button @click="$emit('search', searchString)">Cerca</button>
-            <input type="text" v-model="searchString">
+            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString">
             <div>Bambini</div>
             <div>Notifiche</div>
             <div>Profilo</div>
