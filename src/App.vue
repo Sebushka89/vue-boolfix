@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="searchSomething" />
-    <Main :films="filteredFilms" />
+    <Header @search="searchContent" />
+    <Main :films="films" :series="series" />
   </div>
     
 </template>
@@ -21,30 +21,41 @@ export default {
   data() {
     return {
       films:[],
-      inputSearch:[],
+      series:[],
+      apiFilmsURL: 'https://api.themoviedb.org/3/search/movie',
+      apiSeriesURL:'https://api.themoviedb.org/3/search/tv',
+      apiKey: '3af7b5148292f04866b6873f768ef9a8',
+      language: 'it-IT',
     }
   },
-  created () {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=3af7b5148292f04866b6873f768ef9a8&query=ritorno+al+futuro').then((result)=>{
-      this.films= result.data.results;
-      this.searchSomething('');
-    })
-  },
-  computed:{
-    filteredFilms(){
-      if (this.inputSearch.length === 0){
-        return this.films
-      }
-
-      return this.films.filter((element)=> {
-        return element.title.toLowerCase().includes(this.inputSearch.toLowerCase()) 
+  methods:{
+    searchContent(searchText){
+      // RICERCA FILM
+      axios
+      .get(this.apiFilmsURL, {
+        params:{
+          api_key: this.apiKey,
+          language: this.language,
+          query: searchText
+        }
       })
+      .then( response =>{
+        this.films = response.data.results;
+      })
+      // RICERCA SERIE TV
+      axios
+      .get(this.apiSeriesURL, {
+        params:{
+          api_key: this.apiKey,
+          language: this.language,
+          query: searchText
+        }
+      })
+      .then( response =>{
+        this.series = response.data.results;
+      })
+      searchText=''
     }
-  },
-  methods: {
-    searchSomething(searchString) {
-      this.inputSearch = searchString.trim()
-    }, 
   }
 }
 </script>

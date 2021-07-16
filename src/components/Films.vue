@@ -1,60 +1,93 @@
 <template>
-   <div class="film-container">
-        <div class="film-content">
-            <img src="https://image.tmdb.org/t/p/w342/hQq8xZe5uLjFzSBt4LanNP7SQjl.jpg" alt="">
-            
-            <div class="info">
-                <h4>{{title}}</h4>
-                <div> Titolo Originale: {{original_title }}</div>
-                <div>Lingua: {{original_language }}</div>
-                <div>Voto: {{vote_average }}</div>   
-            </div>  
+  <div class="col my-6 px-1">
+    <div class="card">
+      <img :src="getImgPath()" alt="" class="card-img-top position-relative">
+      <div class="card-body position-absolute">
+        <div class="title">{{ content.title || content.name }}</div>
+        <div class="subtitle" v-if="content.original_title != content.title || content.original_name != content.name">{{ content.original_title || content.original_name }}</div>
+        <div class="language mt-2 mb-2 d-flex align-items-center justify-content-around">
+          <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
         </div>
+        <div class="overview" v-if="content.overview">{{content.overview}}</div>
+        <div class="overview" v-else>Informazioni non disponibili</div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-export default {
-    name: 'Films' ,
-    props:{
-        title: String,
-        original_title: String,
-        original_language: String,
-        vote_average: String,
-    }
 
+export default {
+  name: 'Films',
+  components:{
+   
+  },
+  props: {
+    content: Object
+  },
+  data() {
+    return {
+      flagURL:'',
+    }
+  },
+  methods: {
+    getFlagURL(){
+      if (this.content.original_language == 'en') {
+        return this.flagURL=require('@/assets/en.png')
+      } else{
+        return this.flagURL='https://www.countryflags.io/' + this.content.original_language + '/flat/64.png'
+      }
+    },
+    getImgPath(){
+      return (this.content.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.content.poster_path : require('@/assets/notavailable.jpg'))
+    }
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-
-.film-content {
-    height:500px;
-    width: 300px;
-    position: relative;
-    margin: 0 5px;
-
-    &:hover .info{
-        display: block;
-    }
-    &:hover img{
-        opacity: 0.5;
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        opacity: 1;
-    }
-    .info {
-        position: absolute;
-        text-align: center;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        display: none;
-        cursor: pointer;
-        width: 100%;
-    }
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+.col{
+  height: 390px;
 }
+.card{
+  border: none;
+}
+.card:hover .card-body{
+  display: block;
+}
+.card-img-top{
+  filter: brightness(1);
+  transition: all 0.3s ease-out;
+  height: 380px;
+}
+.card:hover .card-img-top{
+  filter: brightness(0.2)	;
+}
+.card-body *{
+  color: white;
+  font-size: 14px;
+}
+.card-body{
+  height: 100%;
+  display: none;
+  overflow: auto;
+}
+.card-body::-webkit-scrollbar {
+  display: none;
+}
+.title{
+  font-size: 20px;
+  text-transform:uppercase ;
+}
+.subtitle{
+    font-style: italic;
+}
+.language-flag{
+  width: 20%;
+}
+.overview{
+    font-size: 12px;
+}
+
 </style>

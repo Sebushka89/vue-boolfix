@@ -1,12 +1,22 @@
 <template>
-    <div class="container">
-        <Films v-for="(film, index) in films" :key="index"
-        :title="film.title"
-        :original_title="film.original_title"
-        :original_language="film.original_language"
-        :genre="film.genre"
-        :vote_average="film.vote_average" />
-    </div>
+    <main class="py-3">
+        <div class="container">
+            <div class="films ">
+                <h1 v-if="films.length != 0" class="text-danger">FILM</h1>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                <Films v-for="film in films" :key="film.id" :content="film"/>
+            </div>
+        </div>
+            <div class="series">
+                <h1 v-if="series.length != 0" class="text-danger">SERIE TV</h1>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                <Films v-for="serie in series" :key="serie.id" :content="serie"/>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
 </template>
 
 <script>
@@ -17,7 +27,8 @@ export default {
         Films
     },
     props:{
-        films:Array
+        films:Array,
+        series: Array
     },
     data() {
         return {
@@ -29,12 +40,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
-    background-color: black;
-    color: white;
-    height: 100vh;
-    padding: 30px;
-    display: flex;
+main{
+  height: calc(100vh - 100px);
+  background-color: #141414;
 }
 
 

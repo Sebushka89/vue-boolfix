@@ -66,8 +66,13 @@ export default {
             width: 70px;
             border-radius: 25px;
         }
+        
         input{
-          color: black;  
+        background-color: #303030;
+        border: 2px white solid;
+        }
+        input::placeholder{
+        color: grey;
         }
         * {
             margin-left: 12px;
