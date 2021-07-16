@@ -13,8 +13,8 @@
         </div>
 
         <div class="info-container">
-            <div>Cerca</div>
-            <input type="text">
+            <button @click="$emit('search', searchString)">Cerca</button>
+            <input type="text" v-model="searchString">
             <div>Bambini</div>
             <div>Notifiche</div>
             <div>Profilo</div>
@@ -61,9 +61,18 @@ export default {
     }
     .info-container {
         display: flex;
+        button{
+            color: black;
+            width: 70px;
+            border-radius: 25px;
+        }
+        input{
+          color: black;  
+        }
         * {
             margin-left: 12px;
             color: white;
+            cursor: pointer;
         }
     }
 }

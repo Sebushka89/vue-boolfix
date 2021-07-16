@@ -32,7 +32,7 @@ export default {
     height:500px;
     width: 300px;
     position: relative;
-    margin: 0 20px;
+    margin: 0 5px;
 
     &:hover .info{
         display: block;
