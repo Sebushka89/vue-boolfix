@@ -34,7 +34,14 @@ export default {
     getFlagURL(){
       if (this.content.original_language == 'en') {
         return this.flagURL=require('@/assets/en.png')
-      } else{
+        }else if(this.content.original_language == 'ko') {
+        return this.flagURL=require('@/assets/ko.png')
+        }
+        else if(this.content.original_language == 'ja') {
+        return this.flagURL=require('@/assets/ja.png')
+        }else if(this.content.original_language == 'te' ||this.content.original_language == 'hi' ) {
+        return this.flagURL=require('@/assets/te.png')
+        } else{
         return this.flagURL='https://www.countryflags.io/' + this.content.original_language + '/flat/64.png'
       }
     },

@@ -50,6 +50,7 @@ export default {
     .nav-menu {
         display: flex;
         flex-grow: 1;
+        text-align: center;
         * {
             margin-left: 12px;
             color: gray;
