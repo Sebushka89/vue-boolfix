@@ -17,8 +17,8 @@
             <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString">
             <div>Bambini</div>
             <div>Notifiche</div>
-            <div>Profilo</div>
         </div>
+           <img class="profile" src="../assets/p.png" alt="">
 
     </div>
 </template>
@@ -57,11 +57,14 @@ export default {
             text-decoration: none;
             &:hover {
                 color: white ;
+                transition: 0.3s;
             }                
         }
     }
     .info-container {
         display: flex;
+        text-align: center;
+        margin-right: 12px;
         button{
             color: black;
             width: 70px;
@@ -81,6 +84,11 @@ export default {
             cursor: pointer;
         }
     }
+        .profile{
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
+        }
 }
 
 </style>

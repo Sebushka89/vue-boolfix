@@ -7,7 +7,7 @@
         <div class="subtitle" v-if="content.original_title != content.title || content.original_name != content.name">{{ content.original_title || content.original_name }}</div>
         <div class="language mt-2 mb-2 d-flex align-items-center justify-content-around">
           <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
-        </div>
+        </div>    
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
         <div class="overview" v-else>Informazioni non disponibili</div>
       </div>
@@ -92,6 +92,9 @@ export default {
 }
 .language-flag{
   width: 20%;
+}
+i{
+  color: gold;
 }
 .overview{
     font-size: 12px;
