@@ -59,6 +59,7 @@ export default {
 }
 .card{
   border: none;
+  cursor: pointer;
 }
 .card:hover .card-body{
   display: block;
