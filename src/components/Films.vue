@@ -93,9 +93,6 @@ export default {
 .language-flag{
   width: 20%;
 }
-i{
-  color: gold;
-}
 .overview{
     font-size: 12px;
 }
