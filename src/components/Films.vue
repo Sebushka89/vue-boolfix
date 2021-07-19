@@ -13,7 +13,7 @@
         <span class="full-stars" v-for="(stars, index) in Math.round(content.vote_average / 2)" :key="index">
           <i class="fas fa-star"></i>
         </span>
-        <span class="empty-stars" v-for="(stars, index) in 5 - Math.round(content.vote_average / 2)" :key="index">
+        <span class="empty-stars" v-for="(stars, index) in 5 - Math.round(content.vote_average / 2)" :key="index+'1'">
           <i class="far fa-star"></i>
         </span>
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
