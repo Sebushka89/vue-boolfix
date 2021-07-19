@@ -5,9 +5,11 @@
       <div class="card-body position-absolute">
         <div class="title">{{ content.title || content.name }}</div>
         <div class="subtitle" v-if="content.original_title != content.title || content.original_name != content.name">{{ content.original_title || content.original_name }}</div>
-        <div class="language mt-2 mb-2 d-flex align-items-center justify-content-around">
+        <div class="language mt-2 mb-2 d-flex justify-content-around">
           <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
-        </div>    
+        </div>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
         <div class="overview" v-else>Informazioni non disponibili</div>
       </div>
@@ -42,11 +44,11 @@ export default {
         }else if(this.content.original_language == 'te' ||this.content.original_language == 'hi' ) {
         return this.flagURL=require('@/assets/te.png')
         } else{
-        return this.flagURL='https://www.countryflags.io/' + this.content.original_language + '/flat/64.png'
+        return this.flagURL='https://www.countryflags.io/' + this.content.original_language + '/shiny/64.png'
       }
     },
     getImgPath(){
-      return (this.content.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.content.poster_path : require('@/assets/notavailable.jpg'))
+      return (this.content.poster_path ? 'https://image.tmdb.org/t/p/w500' + this.content.poster_path : require('@/assets/notavailable.jpg'))
     }
   },
 }
@@ -70,7 +72,7 @@ export default {
   height: 380px;
 }
 .card:hover .card-img-top{
-  filter: brightness(0.2)	;
+  filter: brightness(0.5)	;
 }
 .card-body *{
   color: white;
@@ -93,6 +95,9 @@ export default {
 }
 .language-flag{
   width: 20%;
+}
+.fa-star{
+  color: 	rgb(255,215,0);
 }
 .overview{
     font-size: 12px;

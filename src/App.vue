@@ -36,6 +36,10 @@ export default {
   },
   methods:{
     searchContent(searchText){
+      if(searchText==0){
+        this.createApiFilms();
+        this.createApiTv()
+      }
       // RICERCA FILM
       axios.get(this.apiFilmsURL, {
         params:{
