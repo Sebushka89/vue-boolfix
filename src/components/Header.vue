@@ -48,7 +48,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: 18px;
-    padding: 12px 24px;
+    padding: 0 24px;
     background-color: black;
     img {
         width: 200px;
