@@ -5,11 +5,17 @@
       <div class="card-body position-absolute">
         <div class="title">{{ content.title || content.name }}</div>
         <div class="subtitle" v-if="content.original_title != content.title || content.original_name != content.name">{{ content.original_title || content.original_name }}</div>
-        <div class="language mt-2 mb-2 d-flex justify-content-around">
+        <div class="language mt-2 mb-2">
+          Lingua originale:
           <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
         </div>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
+        <span>VOTO: </span>
+        <span class="full-stars" v-for="(stars, index) in Math.round(content.vote_average / 2)" :key="index">
+          <i class="fas fa-star"></i>
+        </span>
+        <span class="empty-stars" v-for="(stars, index) in 5 - Math.round(content.vote_average / 2)" :key="index">
+          <i class="far fa-star"></i>
+        </span>
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
         <div class="overview" v-else>Informazioni non disponibili</div>
       </div>
