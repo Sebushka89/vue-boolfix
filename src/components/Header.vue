@@ -16,7 +16,7 @@
             <div @click="$emit('search', searchString)" class="find">
                 <i class="fas fa-search"></i>
             </div>
-            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString" placeholder="Cerca film o serie tv">
+            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString" placeholder="Cerca...">
             <div>BAMBINI</div>
             <div class="notifiche">
                 <div class="dot-red"></div>
@@ -83,7 +83,7 @@ export default {
         padding-left: 12px;
         }
         input::placeholder{
-        color: grey;
+        color: lightgrey;
         }
         input:focus {
             outline:none!important;

@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="series">
-                <h1 v-if="series.length != 0" class="text">Serie TV</h1>
+                <h1 v-if="series.length != 0" class="text">Serie Tv</h1>
                 <div class="d-flex">
                     <Films v-for="serie in series" :key="serie.id" :content="serie"/>
                 </div>
