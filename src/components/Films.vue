@@ -9,8 +9,9 @@
           Lingua originale:
           <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
         </div>
-        <span>VOTO: </span>
-        <i v-for="star in 5" :key="star" class="fa-star" :class="fullStar(star)"></i> 
+        <div class="d-flex">
+          <i v-for="star in 5" :key="star" class="fa-star" :class="fullStar(star)"></i> 
+        </div>
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
         <div class="overview" v-else>Informazioni non disponibili</div>
       </div>
@@ -35,7 +36,7 @@ export default {
   },
   computed: {
     stars() {
-      return Math.round(this.content.vote_average / 2)
+      return Math.ceil(this.content.vote_average / 2)
     }
   },
   methods: {
@@ -80,8 +81,14 @@ export default {
 }
 .card-img-top{
   filter: brightness(1);
-  transition: all 0.3s ease-out;
   height: 380px;
+}
+.card:hover  {
+  transform: scale(1.2);
+  transform-origin: left center;
+  z-index: 1002;
+  transition: all 0.5s ease-out;
+  
 }
 .card:hover .card-img-top{
   filter: brightness(0.5)	;
@@ -113,6 +120,7 @@ export default {
 }
 .overview{
     font-size: 12px;
+    margin-top: 6px;
 }
 
 </style>
