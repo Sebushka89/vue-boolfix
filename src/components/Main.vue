@@ -47,11 +47,45 @@ main{
     color: rgb(255, 09, 20);
   }
   .films{
-    overflow-x: hidden;
+    overflow-x: auto;
   }
+  /*modifica scrollbar*/
+    ::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px lightslategray; 
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: gray; 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(97, 96, 96); 
+    }
   .series{
-      overflow-x: hidden;
-  }
+      overflow-x: auto;
+    }
+    ::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: gray; 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(97, 96, 96); 
+    }
 }
 
 
