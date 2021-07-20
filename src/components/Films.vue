@@ -1,5 +1,5 @@
 <template>
-  <div class=" my-6 px-1">
+  <div class=" my-4 px-1">
     <div class="card">
       <img :src="getImgPath()" alt="" class="card-img-top position-relative">
       <div class="card-body position-absolute">
@@ -85,10 +85,9 @@ export default {
 }
 .card:hover  {
   transform: scale(1.2);
-  transform-origin: left center;
+  transform-origin: left bottom;
   z-index: 1002;
   transition: all 0.5s ease-out;
-  
 }
 .card:hover .card-img-top{
   filter: brightness(0.5)	;
@@ -119,8 +118,8 @@ export default {
   color: 	rgb(255,215,0);
 }
 .overview{
-    font-size: 12px;
-    margin-top: 6px;
+  font-size: 12px;
+  margin-top: 6px;
 }
 
 </style>
