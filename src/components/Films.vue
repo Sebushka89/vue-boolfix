@@ -10,12 +10,7 @@
           <img :src="getFlagURL()" class="language-flag" :alt="content.original_language">
         </div>
         <span>VOTO: </span>
-        <span class="full-stars" v-for="(stars, index) in Math.round(content.vote_average / 2)" :key="index">
-          <i class="fas fa-star"></i>
-        </span>
-        <span class="empty-stars" v-for="(stars, index) in 5 - Math.round(content.vote_average / 2)" :key="index+'1'">
-          <i class="far fa-star"></i>
-        </span>
+        <i v-for="star in 5" :key="star" class="fa-star" :class="fullStar(star)"></i> 
         <div class="overview" v-if="content.overview">{{content.overview}}</div>
         <div class="overview" v-else>Informazioni non disponibili</div>
       </div>
@@ -38,6 +33,11 @@ export default {
       flagURL:'',
     }
   },
+  computed: {
+    stars() {
+      return Math.round(this.content.vote_average / 2)
+    }
+  },
   methods: {
     getFlagURL(){
       if (this.content.original_language == 'en') {
@@ -55,7 +55,14 @@ export default {
     },
     getImgPath(){
       return (this.content.poster_path ? 'https://image.tmdb.org/t/p/w500' + this.content.poster_path : require('@/assets/notavailable.jpg'))
-    }
+    },
+    fullStar(star) {
+      if (star < this.stars) {
+        return 'fas'
+        } else {
+        return 'far'
+        }
+      }
   },
 }
 </script>
