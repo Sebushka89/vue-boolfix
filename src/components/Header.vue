@@ -16,7 +16,7 @@
             <div @click="$emit('search', searchString)" class="find">
                 <i class="fas fa-search"></i>
             </div>
-            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString">
+            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString" placeholder="Cerca film o serie tv">
             <div>BAMBINI</div>
             <div class="notifiche">
                 <div class="dot-red"></div>
@@ -48,7 +48,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: 18px;
-    padding: 0 24px;
+    padding-right: 24px;
     background-color: black;
     img {
         width: 200px;
@@ -72,12 +72,12 @@ export default {
         text-align: center;
         margin-right: 12px;
         align-items: center;
+        color: white;
         .fa-search{
          font-size: 20px;
         }
         
         input{
-        background-color: #303030;
         border: 2px white solid;
         border-radius: 15px;
         padding-left: 12px;
@@ -90,7 +90,6 @@ export default {
         }
         * {
             margin-left: 12px;
-            color: white;
             cursor: pointer;
         }
         .fa-bell{

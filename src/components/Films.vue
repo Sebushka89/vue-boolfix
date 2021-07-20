@@ -1,5 +1,5 @@
 <template>
-  <div class="col my-6 px-1">
+  <div class=" my-6 px-1">
     <div class="card">
       <img :src="getImgPath()" alt="" class="card-img-top position-relative">
       <div class="card-body position-absolute">
@@ -62,12 +62,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.col{
-  height: 390px;
-}
+
 .card{
   border: none;
   cursor: pointer;
+  width: 275px;
 }
 .card:hover .card-body{
   display: block;

@@ -1,16 +1,16 @@
 <template>
     <main class="py-3">
-        <div class="container">
-            <div class="films ">
+        <div class="container-main">
+            <div class="films">
                 <h1 v-if="films.length != 0" class="text">FILM</h1>
-                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                <Films v-for="film in films" :key="film.id" :content="film"/>
+                <div class="d-flex">
+                    <Films v-for="film in films" :key="film.id" :content="film"/>
+                </div>
             </div>
-        </div>
             <div class="series">
                 <h1 v-if="series.length != 0" class="text">SERIE TV</h1>
-                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                <Films v-for="serie in series" :key="serie.id" :content="serie"/>
+                <div class="d-flex">
+                    <Films v-for="serie in series" :key="serie.id" :content="serie"/>
                 </div>
             </div>
         </div>
@@ -41,10 +41,16 @@ export default {
 
 <style lang="scss" scoped>
 main{
-  height: calc(100vh - 100px);
   background-color: #141414;
+  padding-left: 24px;
   .text{
-      color: rgb(255, 09, 20);
+    color: rgb(255, 09, 20);
+  }
+  .films{
+    overflow-x: hidden;
+  }
+  .series{
+      overflow-x: hidden;
   }
 }
 
