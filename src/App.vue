@@ -36,7 +36,7 @@ export default {
   },
   methods:{
     searchContent(searchText){
-      if(searchText==''){
+      if(searchText.trim()==''){
         this.createApiFilms();
         this.createApiTv()
       }
