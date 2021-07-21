@@ -80,21 +80,16 @@ main{
     display: flex;
     align-items: center;
     color: white;
+    cursor: pointer;
   }
   .button-right{
     display: flex;
     align-items: center;
-    color: white;
-    &:hover{
-    transform:scale(1.5) ;
-    }
+    color:white;
+    cursor: pointer;
   }
   .text{
     color: white;
-  }
-  .films{
-    overflow-x: auto;
-    overflow-y: hidden ;
   }
   /*modifica scrollbar*/
     ::-webkit-scrollbar {
@@ -113,10 +108,6 @@ main{
 
     ::-webkit-scrollbar-thumb:hover {
         background: rgb(97, 96, 96); 
-    }
-    .series{
-      overflow-x: auto;
-      overflow-y: hidden;
     }
     ::-webkit-scrollbar {
         height: 10px;
