@@ -16,7 +16,7 @@
             <div @click="$emit('search', searchString)" class="find">
                 <i class="fas fa-search"></i>
             </div>
-            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString" placeholder="Cerca...">
+            <input @keyup.enter="$emit('search', searchString)" type="text" v-model="searchString" placeholder="Cerca..." autofocus>
             <div>BAMBINI</div>
             <div class="notifiche">
                 <div class="dot-red"></div>
@@ -76,7 +76,6 @@ export default {
         .fa-search{
          font-size: 20px;
         }
-        
         input{
         border: 2px white solid;
         border-radius: 15px;

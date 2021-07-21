@@ -85,21 +85,19 @@ export default {
 }
 .card:hover  {
   transform: scale(1.2);
-  transform-origin: left bottom;
+  transform-origin: left;
   z-index: 1002;
   transition: all 0.5s ease-out;
 }
 .card:hover .card-img-top{
   filter: brightness(0.5)	;
 }
-.card-body *{
-  color: white;
-  font-size: 14px;
-}
 .card-body{
   height: 100%;
   display: none;
   overflow: auto;
+  color: white;
+  font-size: 14px;
 }
 .card-body::-webkit-scrollbar {
   display: none;

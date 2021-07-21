@@ -1,14 +1,14 @@
 <template>
     <main class="py-3">
         <div class="container-main">
+            <h1 v-if="films.length != 0" class="text">Film</h1>
             <div class="films">
-                <h1 v-if="films.length != 0" class="text">Film</h1>
                 <div class="d-flex">
                     <Films v-for="film in films" :key="film.id" :content="film"/>
                 </div>
             </div>
+            <h1 v-if="series.length != 0" class="text">Serie Tv</h1>
             <div class="series">
-                <h1 v-if="series.length != 0" class="text">Serie Tv</h1>
                 <div class="d-flex">
                     <Films v-for="serie in series" :key="serie.id" :content="serie"/>
                 </div>
@@ -68,7 +68,7 @@ main{
     ::-webkit-scrollbar-thumb:hover {
         background: rgb(97, 96, 96); 
     }
-  .series{
+    .series{
       overflow-x: auto;
       overflow-y: hidden;
     }
