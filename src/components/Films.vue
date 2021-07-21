@@ -82,10 +82,10 @@ export default {
 .card-img-top{
   filter: brightness(1);
   height: 380px;
+  width: 100%;
 }
 .card:hover  {
   transform: scale(1.2);
-  transform-origin: left;
   z-index: 1002;
   transition: all 0.5s ease-out;
 }
