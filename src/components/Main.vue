@@ -4,17 +4,17 @@
             <h1 v-if="films.length != 0" class="text">Film</h1>
             <div class="films">
                 <div class="d-flex justify-content-center">
-                    <div class="button-left" @click="goBackFilms()"><i class="fas fa-chevron-left"></i></div>
+                    <div v-show="currentIndexFilms >= 6 " class="button-left" @click="goBackFilms()"><i class="fas fa-chevron-left"></i></div>
                     <Films v-for="film in newArrayFilm" :key="film.id" :content="film"/>
-                    <div class="button-right" @click="goForwardFilms()"><i class="fas fa-chevron-right"></i></div>
+                    <div v-show="currentIndexFilms < this.films.length - 6" class="button-right" @click="goForwardFilms()"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
             <h1 v-if="series.length != 0" class="text">Serie Tv</h1>
             <div class="series">
                 <div class="d-flex justify-content-center">
-                    <div class="button-left" @click="goBackSeries()"><i class="fas fa-chevron-left"></i></div>
+                    <div v-show="currentIndexSeries >= 6 " class="button-left" @click="goBackSeries()"><i class="fas fa-chevron-left"></i></div>
                     <Films v-for="serie in newArraySeries" :key="serie.id" :content="serie"/>
-                    <div class="button-right" @click="goForwardSeries()"><i class="fas fa-chevron-right"></i></div>
+                    <div v-show="currentIndexSeries < this.series.length - 6" class="button-right" @click="goForwardSeries()"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
         </div>
