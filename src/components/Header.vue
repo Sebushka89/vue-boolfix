@@ -1,5 +1,5 @@
 <template>
-     <div class="header-container"> 
+    <div class="header-container">
 
         <img src="../assets/Netflix-logo.png" alt="">
         
@@ -23,8 +23,8 @@
                 <i class="fas fa-bell"></i>
             </div>
         </div>
-           <img class="profile" src="../assets/p.png" alt="">
-           <i class="fas fa-caret-down"></i>
+        <img class="profile" src="../assets/p.png" alt="">
+        <i class="fas fa-caret-down"></i>
 
     </div>
 </template>
